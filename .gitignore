@@ -22,3 +22,15 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Shopify CLI
+.shopify/
+dist/
+
+# Extension build artifacts
+extensions/*/build/
+extensions/*/dist/
+extensions/*/.shopify/
+
+# Shopify environment files
+.env.local

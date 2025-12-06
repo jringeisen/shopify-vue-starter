@@ -1,0 +1,59 @@
+{% comment %}
+  This is an example theme app extension block.
+  It demonstrates how to add custom functionality to Shopify themes.
+{% endcomment %}
+
+<div class="product-rating" {{ block.shopify_attributes }}>
+  {% if block.settings.show_rating %}
+    <div class="product-rating__stars">
+      {% render 'star-rating', rating: 4.5 %}
+    </div>
+  {% endif %}
+
+  {% if block.settings.show_count %}
+    <div class="product-rating__count">
+      <span>(127 reviews)</span>
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  .product-rating {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+  }
+
+  .product-rating__stars {
+    display: flex;
+    align-items: center;
+  }
+
+  .product-rating__count {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Rating",
+  "target": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show rating",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_count",
+      "label": "Show review count",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

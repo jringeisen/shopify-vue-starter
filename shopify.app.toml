@@ -1,0 +1,26 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "{{ SHOPIFY_APP_NAME }}"
+client_id = "{{ SHOPIFY_API_KEY }}"
+application_url = "{{ APP_URL }}"
+embedded = true
+
+[access_scopes]
+# Available scopes: https://shopify.dev/docs/api/usage/access-scopes
+scopes = "read_products,write_products,read_themes"
+
+[auth]
+redirect_urls = [
+  "{{ APP_URL }}/authenticate",
+  "{{ APP_URL }}/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-04"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "{{ SHOPIFY_DEV_STORE_URL }}"

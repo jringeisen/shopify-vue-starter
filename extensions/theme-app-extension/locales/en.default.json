@@ -1,0 +1,9 @@
+{
+  "product_rating": {
+    "title": "Product Rating",
+    "reviews": {
+      "one": "{{ count }} review",
+      "other": "{{ count }} reviews"
+    }
+  }
+}

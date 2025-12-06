@@ -23,9 +23,14 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $shopName = fake()->words(2, true);
+        $shopDomain = Str::slug($shopName);
+
         return [
-            'name' => fake()->name(),
+            'name' => ucwords($shopName),
             'email' => fake()->unique()->safeEmail(),
+            'shopify_domain' => $shopDomain.'.myshopify.com',
+            'shopify_token' => 'shpat_'.Str::random(32),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),

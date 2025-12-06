@@ -15,11 +15,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
+        $shop = User::factory()->create([
+            'name' => 'Test Shop',
             'email' => 'test@example.com',
+            'shopify_domain' => 'test-shop.myshopify.com',
         ]);
+
+        \App\Models\Product::factory()
+            ->count(20)
+            ->for($shop, 'shop')
+            ->create();
+
+        \App\Models\Product::factory()
+            ->count(5)
+            ->for($shop, 'shop')
+            ->active()
+            ->create();
     }
 }

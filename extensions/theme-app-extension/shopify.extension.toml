@@ -1,0 +1,7 @@
+api_version = "2024-04"
+name = "theme-app-extension"
+type = "theme"
+
+[extension_points.product_rating]
+name = "Product Rating"
+category = "PRODUCT"
